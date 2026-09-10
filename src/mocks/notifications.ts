@@ -1,0 +1,101 @@
+import { AppNotification, NotificationPreferences } from '../types/notification';
+
+export const mockDefaultNotificationPreferences: NotificationPreferences = {
+  appointmentNotifications: true,
+  medicineReminders: true,
+  reportAlerts: true,
+  hospitalAnnouncements: true,
+  emailAlerts: true,
+  smsAlerts: false,
+};
+
+export const mockNotificationsList: AppNotification[] = [
+  {
+    id: 'notif-001',
+    category: 'appointment',
+    title: 'Appointment Confirmed',
+    message: 'Your appointment with Dr. Ayesha Rahman (Cardiometabolic Specialist) is confirmed on 25 Apr 2025, 10:00 AM at AIIA OPD Block A.',
+    timestamp: '10 minutes ago',
+    isRead: false,
+    priority: 'high',
+    actionLabel: 'View Details',
+    actionUrl: '/hospital-services',
+    metadata: {
+      appointmentId: 'APT-2025-0421',
+      doctorName: 'Dr. Ayesha Rahman',
+      appointmentDate: '25 Apr 2025, 10:00 AM',
+    },
+  },
+  {
+    id: 'notif-002',
+    category: 'medicine',
+    title: 'Medicine Reminder',
+    message: 'Time to take your medicine: Telmisartan 40mg (1 tablet with morning water after breakfast).',
+    timestamp: '1 hour ago',
+    isRead: false,
+    priority: 'high',
+    actionLabel: 'Mark as Taken',
+    metadata: {
+      medicineName: 'Telmisartan',
+      medicineDose: '40mg',
+      medicineTiming: 'Morning after food',
+      isTaken: false,
+    },
+  },
+  {
+    id: 'notif-003',
+    category: 'report',
+    title: 'AI Consultation Report Ready',
+    message: 'Your AI-generated case analysis report (CPR-2025-0312-001) has been compiled and is ready for physician presentation.',
+    timestamp: '2 hours ago',
+    isRead: false,
+    priority: 'normal',
+    actionLabel: 'View Report',
+    actionUrl: '/reports',
+    metadata: {
+      reportId: 'rep-001',
+      reportType: 'AI Consultation',
+    },
+  },
+  {
+    id: 'notif-004',
+    category: 'report',
+    title: 'Lab Report Uploaded',
+    message: 'Your Complete Blood Count (CBC) test report has been uploaded by the AIIA Central Pathology Laboratory.',
+    timestamp: 'Yesterday',
+    isRead: true,
+    priority: 'normal',
+    actionLabel: 'View Report',
+    actionUrl: '/reports',
+    metadata: {
+      reportId: 'rep-002',
+      reportType: 'Lab Report',
+    },
+  },
+  {
+    id: 'notif-005',
+    category: 'hospital',
+    title: 'Hospital Announcement: Extended OPD Timings',
+    message: 'Notice from AIIA Administration: Starting May 1st, Specialized OPD consultation services will operate 08:00 AM to 04:00 PM (Monday - Saturday).',
+    timestamp: '2 days ago',
+    isRead: true,
+    priority: 'normal',
+    actionLabel: 'View Notice',
+    metadata: {
+      announcementType: 'Administrative Update',
+    },
+  },
+  {
+    id: 'notif-006',
+    category: 'hospital',
+    title: 'Free Preventive Health & Yoga Camp',
+    message: 'Swasthavritta Department is organizing a Free Holistic Health & Prakriti Assessment Camp this Sunday at the Main Wellness Hall.',
+    timestamp: '3 days ago',
+    isRead: true,
+    priority: 'normal',
+    actionLabel: 'View Camp Details',
+    metadata: {
+      announcementType: 'Community Outreach',
+    },
+  },
+];
